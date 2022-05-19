@@ -1,0 +1,85 @@
+<div class="container">
+    <list class="list" scrollbar="off" shapemode="rect" scrolleffect="fade" >
+        <list-item class="listItem">
+            <div class="navbar">
+                <div class="icon-container" onclick="redir_home">
+                    <image src="{{backArrowIcon_src}}" class="icon-image"></image>
+                </div>
+                <text class="heading-text">Detail</text>
+                <div class="icon-container">
+                    <image src="{{twoDotIcon_src}}" class="icon-image"></image>
+                </div>
+            </div>
+        </list-item>
+
+
+<!--       show selected item details-->
+        <list-item class="listItem">
+            <div class="product-details">
+                <stack style="justify-content: flex-end;">
+                    <image src="{{selected_product.url}}" class="product-image"></image>
+                    <div class="rating-container">
+                        <div style="justify-content: space-between;">
+                            <rating numstars="1" rating="1" style="margin-bottom: 20px; width: 50px; height: 50px;"></rating>
+                            <text style="font-size: 40px; margin-left: 10px; margin-bottom: 15px;">{{selected_product.rating}}</text>
+                        </div>
+                        <text >{{selected_product.num_reviews}} Reviews</text>
+                    </div>
+                </stack>
+                <text class="heading-text">{{selected_product.name}}</text>
+                <text class="price-text">Rs. {{selected_product.price}}</text>
+                <text class="product-description">
+                    {{dummy_text}}
+                </text>
+            </div>
+        </list-item>
+
+<!--      color and qty section  -->
+        <list-item class="listItem">
+            <div class="product-properties-container">
+                <div style="justify-content: space-between; align-content: center; width: 100%;">
+                    <div class="product-color-container">
+                        <text>color</text>
+                        <div class="color-container">
+                            <button type="circle" for="{{color_data}}" id="{{$item.color}}" class="color-button" onclick="update_color" style="background-color: {{$item.color}};">{{$item.value}}</button>
+                        </div>
+                    </div>
+
+                    <div class="count-container">
+                        <div class="bottom-icon-container" onclick="inc_count">
+                            <image src="{{plus_Icon_src}}" class="bottom-icon-image"></image>
+                        </div>
+                        <text id="itemCount" class="count-text">{{param_value.qty}}</text>
+                        <div class="bottom-icon-container" onclick="dec_count">
+                            <image src="{{minus_Icon_src}}" class="bottom-icon-image"></image>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </list-item>
+
+<!--        available sizes-->
+        <list-item class="listItem">
+            <div style="flex-direction: column;">
+                <div class="product-color-container">
+                    <text>Available Sizes</text>
+                </div>
+                <div class="size-container">
+                    <button for="{{size_data}}" class="size-button" value="{{$item.value}} inches" style="background-color: {{$item.bg_color}}; text-color: {{$item.txt_color}};" onclick="update_size"></button>
+                </div>
+            </div>
+        </list-item>
+
+    </list>
+
+<!--    add to cart button-->
+    <div style="justify-content: space-between; width: 100%;">
+        <button type="circle" icon="{{favourite_Icon_src}}" class="fav-btn"></button>
+        <div class="addToCart-button" onclick="addToCart" >
+            <text style="font-size: 30px; font-weight: 800; color: white;">Add to Cart</text>
+            <image src="{{cartIcon_src}}" class="cart-img"></image>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,27 @@
+<div class="main-container" style="display: none;">
+    <text class="heading-text">Cart</text>
+
+    <divider class="divider" vertical="false"></divider>
+
+    <list class="list" scrollbar="off" shapemode="rect" scrolleffect="fade" >
+
+<!--        cart item display -->
+        <list-item for="{{cartProducts}}" class="listItem">
+            <div class="cart-item-card">
+                <div class="image-container">
+                    <image src="{{$item.url}}" class="cart-product-image"></image>
+                </div>
+                <div class="product-details-container">
+                    <text class="details-text" style="font-size: 35px;">{{$item.name}}</text>
+                    <text class="details-text">Rs. {{$item.price}}</text>
+                    <text class="details-text">quantity : {{$item.qty}}</text>
+                </div>
+            </div>
+        </list-item>
+
+        <list-item class="listItem" style="justify-content: center;">
+            <button class="buy-btn" onclick="buyNow">Buy Now</button>
+        </list-item>
+    </list>
+
+</div>

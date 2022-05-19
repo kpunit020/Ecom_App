@@ -1,0 +1,29 @@
+<element name="home" src="../utilityPages/homeTab/homeTab.hml"></element>
+<element name="cart" src="../utilityPages/cart/cart.hml"></element>
+
+<div class="container">
+
+<!-- home tab content-->
+    <home id="HomeContainer"></home>
+
+
+<!--category tab content -->
+    <div id="CategoriesContainer" style="display: none;">
+        <text class="heading-text">Category</text>
+    </div>
+
+
+<!--    Notifications tab content-->
+    <div id="NotificationsContainer" style="display: none;">
+        <text class="heading-text">Notifications</text>
+    </div>
+
+
+<!--    cart tab content-->
+    <cart id="CartContainer"></cart>
+
+<!--    Bottom tab bar -->
+    <toolbar class="bottom-toolbar" style="position: fixed; bottom: 0px; ">
+        <toolbar-item for="{{tabData.tab_details}}" id="{{$item.id}}" icon= '{{$item.img_url}}' value='{{$item.name}}' onclick="change_tab_view" style="opacity: {{$item.opacity}};">   </toolbar-item>
+    </toolbar>
+</div>

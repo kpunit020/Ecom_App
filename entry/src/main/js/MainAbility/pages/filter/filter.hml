@@ -1,0 +1,79 @@
+<div class="container">
+    <list class="list" scrollbar="off" shapemode="rect" scrolleffect="fade" >
+
+<!--        top banner-->
+        <list-item class="listItem">
+            <div class="navbar">
+                <div class="icon-container" onclick="redir_home">
+                    <image src="{{backArrowIcon_src}}" class="icon-image"></image>
+                </div>
+                <text class="heading-text">Filter</text>
+                <div class="icon-container">
+                    <image src="{{twoDotIcon_src}}" class="icon-image"></image>
+                </div>
+            </div>
+        </list-item>
+
+<!--        gender selection-->
+        <list-item class="listItem">
+            <div style="flex-direction: column;">
+                <text class="normal-heading">Gender</text>
+                <div class="genderTabs-container">
+                    <button class="gender-button" for="{{gender_btns}}" style="background-color: {{$item.bg_color}}; text-color: {{$item.txt_color}};" value="{{$item.value}}" onclick="update_gen"></button>
+                </div>
+            </div>
+        </list-item>
+
+
+<!--        category selection-->
+        <list-item class="listItem">
+            <div class="category-container">
+                <text class="normal-heading">Category</text>
+                <select style="margin-left: 60px;" @change="update_category">
+                    <option for="{{categoryData.data}}" value="{{$item.name}}">{{$item.name}}</option>
+                </select>
+            </div>
+        </list-item>
+
+<!--        brand selection-->
+        <list-item class="listItem">
+            <div class="category-container">
+                <text class="normal-heading">Brand</text>
+                <select style="margin-left: 60px;" @change="update_brand">
+                    <option for="{{brand_names}}" value="{{$item}}">{{$item}}</option>
+                </select>
+            </div>
+        </list-item>
+
+<!--        price range setter -->
+        <list-item class="listItem">
+            <div class="price-setter-container">
+                <text class="normal-heading" style="width: 100%;">Price Range</text>
+                <div>
+                    <text style="font-size: 30px; font-weight: 600;">lower limit</text>
+                    <slider min="1000" max="20000" step="1000" showtips="true" style="block-color: #f3f3f3;" onchange="set_min_value" ></slider>
+                </div>
+                <div>
+                    <text style="font-size: 30px; font-weight: 600;">higher limit</text>
+                    <slider min="1000" max="20000" step="1000" showtips="true" style="block-color: #f3f3f3;" onchange="set_max_value" ></slider>
+                </div>
+            </div>
+        </list-item>
+
+<!--        size selection -->
+        <list-item class="listItem">
+            <div style="flex-direction: column;">
+                <text class="normal-heading">Sizes</text>
+                <div class="genderTabs-container">
+                    <button for="{{size_data}}" class="gender-button" value="{{$item.value}} inches" style="background-color: {{$item.bg_color}}; text-color: {{$item.txt_color}};" onclick="update_size"></button>
+                </div>
+            </div>
+        </list-item>
+    </list>
+
+<!--    apply and reset button -->
+    <div class="bottom-btn-container">
+        <button type="capsule" value="Reset" class="bottom-button" style="background-color: #f3f3f3; border-width: 1px; text-color: black;" onclick="reset"></button>
+        <button type="capsule" value="Apply" class="bottom-button" onclick="apply"></button>
+    </div>
+</div>

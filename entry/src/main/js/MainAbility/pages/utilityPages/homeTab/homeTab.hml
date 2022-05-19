@@ -1,0 +1,62 @@
+<div class="main-container" >
+
+<!--        top section implementation-->
+    <div class="home-navbar">
+        <image src="{{navigationBarIcon_src}}" style="height: 60px; width: 60px;"></image>
+        <image src="{{profileIcon_src}}" style="height: 100px; width: 100px;"></image>
+    </div>
+    <text class="heading-text">Discover \nour new items.</text>
+
+<!--        search and filter implementation-->
+    <div class="searchEl-container">
+        <search  @search="search" style="border-radius: 16px;"></search>
+        <div style="height: 80px;width: 25%;" onclick="goto_filter_page">
+            <image src="{{filterIcon_src}}" class="filter-button"></image>
+        </div>
+    </div>
+
+
+<!--        coming soon section-->
+    <div id="comingSoonSection" class="comingSoonSection-container">
+        <div style="height: 150px; width: 150px;">
+            <image src="{{shoe1_src}}" style="border-radius: 16px;"></image>
+        </div>
+        <div style="flex-direction: column; justify-content: center; margin-left: 40px;">
+            <text class="comingSoonSection-heading">Running Unisex \nShoes </text>
+            <text class="comingSoonSection-heading" style="color: blue;">Coming Soon... </text>
+        </div>
+
+        <div id="notifyMeSwitch" class="notifyMeSwitch-container">
+            <switch checked="true" @change="switchChange"></switch>
+            <label class="label" target="notifyMeSwitch">Notify Me</label>
+        </div>
+    </div>
+
+    <text class="subHeading-text">Categories</text>
+
+<!--        display categories-->
+    <div class="categories-container">
+        <button class="category-button" for="{{categoryData.data}}" value="{{$item.name}}" id="{{$item.id}}" style="background-color: {{$item.bgColor}}; text-color: {{$item.txtColor}};" onclick="change_category"></button>
+    </div>
+
+
+<!--display products-->
+    <div class="displaySection-container">
+        <text class="displaySection-heading">Popular {{selected_category}}</text>
+        <div style="flex-direction:row; justify-content: center; align-content: center;">
+            <text style="font-size: 24px; font-weight: 600;">View All</text>
+        </div>
+    </div>
+
+    <div class="productsSection-container">
+        <stack class="product-card-container" for="{{productsData.data}}" id="{{$item.id}}" if="{{$item.category == selected_category}}" onclick="goto_details_page">
+            <image src="{{$item.url}}" style="border-radius: 12px;">
+            </image>
+            <div style="flex-direction: column; justify-content: flex-end; padding: 20px; height: 100%;">
+                <text class="product-details-text">{{$item.name}}</text>
+                <text class="product-details-text">Rs. {{$item.price}}</text>
+            </div>
+        </stack>
+    </div>
+
+</div>
